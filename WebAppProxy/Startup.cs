@@ -41,11 +41,13 @@ namespace WebAppProxy
             //proxyBuilder.LoadFromConfig(Configuration.GetSection("ReverseProxy"));
             services.AddSingleton<ILoadConfigService, LoadConfigService>();
             services.AddReverseProxy().Load(GetRoutes(), GetClusters())
-                .AddTransforms(builderContext =>
-                {
-                    //builderContext.AddPathPrefix("/aigitalspace");
-                    //builderContext.AddPathRemovePrefix("/aigitalspace");//delete 'aigitalspace' prefix, is run ok
-                });
+                //.AddTransforms(builderContext =>
+                //{
+                //builderContext.AddPathPrefix("/aigitalspace");
+                //builderContext.AddPathRemovePrefix("/aigitalspace");//delete 'aigitalspace' prefix, is run ok
+                //});
+                .AddTransforms<MyTransformProvider>();
+                //.AddTransformFactory<>();
             services.AddControllers();
             //services.AddSwaggerGen(c =>
             //{
