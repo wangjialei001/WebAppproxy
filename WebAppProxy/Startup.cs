@@ -94,7 +94,8 @@ namespace WebAppProxy
                 {
                     // Path or Hosts are required for each route. This catch-all pattern matches all request paths.
                     //Path = "{**catch-all}"
-                    Path = "aigitalspace/api/{controller}/{action}"
+                    //Path = "aigitalspace/api/{controller}/{action}"
+                    Path = "aigitalspace/{**catch-all}"
                 },
                 Transforms = new List<Dictionary<string, string>> {
                     new Dictionary<string, string>
