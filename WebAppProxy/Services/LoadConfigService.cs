@@ -20,10 +20,10 @@ namespace WebAppProxy.Services
         {
             var inMemoryConfig = (ConfigProvider)_serviceProvider.GetRequiredService<IProxyConfigProvider>();
             inMemoryConfig.Update(
-                new List<ProxyRoute>() { new ProxyRoute { ClusterId = "r1", Match = new RouteMatch { Path = "/baidu" } } },
+                new List<ProxyRoute>() { new ProxyRoute { ClusterId = "c1",RouteId= "r1", Match = new RouteMatch { Path = "baidu/{**catch-all}" } } },
                 new List<Cluster>
                 {
-                    new Cluster{ Id="r1",Destinations=new Dictionary<string,Destination>(StringComparer.OrdinalIgnoreCase){ { "destination1", new Destination { Address = "http://baidu.com" } } } }
+                    new Cluster{ Id="c1",Destinations=new Dictionary<string,Destination>(StringComparer.OrdinalIgnoreCase){ { "destination1", new Destination { Address = "http://baidu.com" } } } }
                 });
         }
     }
