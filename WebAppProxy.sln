@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppProxy", "WebAppProxy\WebAppProxy.csproj", "{99B0A89F-1D71-446A-AED9-7EE762E970E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppProxy", "WebAppProxy\WebAppProxy.csproj", "{99B0A89F-1D71-446A-AED9-7EE762E970E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{C84521BD-9D0F-41D0-BFE6-51E137D5B12D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{99B0A89F-1D71-446A-AED9-7EE762E970E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99B0A89F-1D71-446A-AED9-7EE762E970E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99B0A89F-1D71-446A-AED9-7EE762E970E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C84521BD-9D0F-41D0-BFE6-51E137D5B12D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C84521BD-9D0F-41D0-BFE6-51E137D5B12D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C84521BD-9D0F-41D0-BFE6-51E137D5B12D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C84521BD-9D0F-41D0-BFE6-51E137D5B12D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

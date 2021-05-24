@@ -47,7 +47,7 @@ namespace WebAppProxy
                 //builderContext.AddPathRemovePrefix("/aigitalspace");//delete 'aigitalspace' prefix, is run ok
                 //});
                 .AddTransforms<MyTransformProvider>();
-                //.AddTransformFactory<>();
+            //.AddTransformFactory<>();
             services.AddControllers();
             //services.AddSwaggerGen(c =>
             //{
@@ -95,15 +95,43 @@ namespace WebAppProxy
                     // Path or Hosts are required for each route. This catch-all pattern matches all request paths.
                     //Path = "{**catch-all}"
                     //Path = "aigitalspace/api/{controller}/{action}"
-                    Path = "daigitalspace/{**catch-all}"
+                    Path = "apptest/{**catch-all}"
                 },
                 Transforms = new List<Dictionary<string, string>> {
+                    new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                    {
+                        { "PathRemovePrefix","/apptest"}//É¾³ýaigitalspaceÇ°×º
+                    },
                     new Dictionary<string, string>
                     {
-                        { "PathRemovePrefix","/daigitalspace"}//É¾³ýaigitalspaceÇ°×º
+                        { "X-Forwarded", "proto,host,for,prefix" },
+                        { "Append", "true"},
+                        { "Prefix","X-Forwarded-"}
+                    },
+                    //new Dictionary<string, string>{
+                    //    { "RequestHeader","X-Forwarded-Proto"},
+                    //    { "Set","http"}
+                    //},
+                    new Dictionary<string, string>{
+                        { "RequestHeader","X-Forwarded-For"},
+                        { "Set","localhost:5900"}
+                    },
+                    new Dictionary<string, string>{
+                        { "RequestHeader","X-Forwarded-Prefix"},
+                        { "Set","apptest"}
+                    },
+                     new Dictionary<string, string>{
+                        { "RequestHeader","Host"},
+                        { "Set","localhost:5900"}
                     }
-                }
+                    //new Dictionary<string, string>
+                    //{
+                    //    { "PathPrefix", "/apptest" }//É¾³ýaigitalspaceÇ°×º
+                    //}
+                 }
             };
+
+
             return new[]
             {
                 proxyRoute
@@ -132,7 +160,7 @@ namespace WebAppProxy
                     //SessionAffinity = new SessionAffinityOptions { Enabled = true, Mode = "Cookie" },
                     Destinations = new Dictionary<string, Destination>(StringComparer.OrdinalIgnoreCase)
                     {
-                        { "destination1", new Destination{ Address="http://10.0.102.176:5006/" }},
+                        //{ "destination1", new Destination{ Address="http://10.0.102.176:5006/" }},
                         { "destination2", new Destination{ Address="http://localhost:5000/"}}
                         //{ "debugdestination1", new Destination{ Address="https://bing.com",Metadata=debugMetadata}},
                     }
