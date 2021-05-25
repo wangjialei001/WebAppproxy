@@ -1,0 +1,16 @@
+﻿一、字段错误
+1、提示错误，20200625203625_InitialIdentityServerConfigurationDbMigration.Designer datetime2(6)修改为datetime(6)
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'datetime2(6) NOT NULL,
+    `Expiration` datetime2(6) NOT NULL,
+    `Data` nvar' at line 8
+2、nvarcher(max)修改longtext CHARACTER SET utf8mb4
+3、varchar(n)修改为varchar(n) CHARACTER SET utf8mb4
+4、.HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);.HasColumnType("varchar(100) CHARACTER SET utf8mb4");注释
+二、迁移
+1 add-migration InitialPersistedGrantDb -c PersistedGrantDbContext -o Migrations/IdentityServer/PersistedGrantDb 
+2 add-migration InitialConfigurationDb -c ConfigurationDbContext -o Migrations/IdentityServer/ConfigurationDb
+3 update-database -Context PersistedGrantDbContext   
+4 update-database -Context ConfigurationDbContext 
+三、
+Startup.cs中InitializeDatabase(app);注释掉
+

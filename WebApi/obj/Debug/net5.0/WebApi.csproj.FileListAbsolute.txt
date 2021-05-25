@@ -27,3 +27,4 @@ E:\opensource\net5\WebAppProxy\WebAppProxy\WebApi\obj\Debug\net5.0\ref\WebApi.dl
 E:\opensource\net5\WebAppProxy\WebAppProxy\WebApi\obj\Debug\net5.0\WebApi.pdb
 E:\opensource\net5\WebAppProxy\WebAppProxy\WebApi\obj\Debug\net5.0\WebApi.genruntimeconfig.cache
 E:\opensource\net5\WebAppProxy\WebAppProxy\WebApi\bin\Debug\net5.0\WebApi.xml
+E:\opensource\net5\WebAppProxy\WebAppProxy\WebApi\obj\Debug\net5.0\WebApi.csprojAssemblyReference.cache
